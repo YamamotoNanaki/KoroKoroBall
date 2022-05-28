@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     public float power = 10;
     public Rigidbody rigidbody;
+    public GameObject gameOver;
     void Start()
     {
 
@@ -15,24 +16,31 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKey(KeyCode.UpArrow))
+        if (transform.position.y < -5)
         {
-            rigidbody.AddForce(new Vector3(0, 0, 1) * power);
+            gameOver.SetActive(true);
         }
-
-        if (Input.GetKey(KeyCode.DownArrow))
+        else
         {
-            rigidbody.AddForce(new Vector3(0, 0, -1) * power);
-        }
+            if (Input.GetKey(KeyCode.UpArrow))
+            {
+                rigidbody.AddForce(new Vector3(0, 0, 1) * power);
+            }
 
-        if (Input.GetKey(KeyCode.LeftArrow))
-        {
-            rigidbody.AddForce(new Vector3(-1, 0, 0) * power);
-        }
+            if (Input.GetKey(KeyCode.DownArrow))
+            {
+                rigidbody.AddForce(new Vector3(0, 0, -1) * power);
+            }
 
-        if (Input.GetKey(KeyCode.RightArrow))
-        {
-            rigidbody.AddForce(new Vector3(1, 0, 0) * power);
+            if (Input.GetKey(KeyCode.LeftArrow))
+            {
+                rigidbody.AddForce(new Vector3(-1, 0, 0) * power);
+            }
+
+            if (Input.GetKey(KeyCode.RightArrow))
+            {
+                rigidbody.AddForce(new Vector3(1, 0, 0) * power);
+            }
         }
     }
 }

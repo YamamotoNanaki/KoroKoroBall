@@ -4,12 +4,19 @@ using UnityEngine;
 
 public class Goal : MonoBehaviour
 {
+    public GameObject clearText;
+    public GameObject nextButton;
+    public AudioSource audioSE;
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Player")
         {
             Debug.Log("ÉSÅ[ÉãÅI");
+
+            clearText.SetActive(true);
+            nextButton.SetActive(true);
+            audioSE.Play();
         }
     }
 
