@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
     public float power = 10;
     public Rigidbody rigidbody;
     public GameObject gameOver;
+    public GameObject clearTxt;
     void Start()
     {
 
@@ -16,9 +17,13 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         if (transform.position.y < -5)
         {
-            gameOver.SetActive(true);
+            if (!clearTxt.activeSelf)
+            {
+                gameOver.SetActive(true);
+            }
         }
         else
         {

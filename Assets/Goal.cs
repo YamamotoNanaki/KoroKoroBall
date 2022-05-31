@@ -7,6 +7,7 @@ public class Goal : MonoBehaviour
     public GameObject clearText;
     public GameObject nextButton;
     public GameObject maxCoin;
+    public GameObject particle;
     public AudioSource audioSE;
 
     private void OnTriggerEnter(Collider other)
@@ -18,6 +19,7 @@ public class Goal : MonoBehaviour
             clearText.SetActive(true);
             nextButton.SetActive(true);
             maxCoin.SetActive(true);
+            particle.SetActive(true);
             audioSE.Play();
         }
     }
